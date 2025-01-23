@@ -3,27 +3,6 @@
 # Install required programs
 source install.sh
 
-#########################
-# AUTHENTICATE KERBEROS #
-#########################
-
-echo -e "\nAuthenticating Kerberos"
-echo "-----------------------"
-
-# Initialize Kerberos Ticket
-echo -n "Domain admin name (default: Administrator): "
-read adminName
-if [[ -z "$adminName" ]]; then
-	kinit Administrator
-else
-	kinit $adminName
-fi
-# Check for ticket
-if ! klist -s ;then
-	echo "No valid kerberos ticket, aborting"
-	exit 1
-fi
-
 ######################
 # DOMAIN INFORMATION #
 ######################
@@ -43,6 +22,28 @@ if [[ -z "$dchost1" ]]; then
 	echo "No valid DC1, aborting"
 	exit 1
 fi
+
+#########################
+# AUTHENTICATE KERBEROS #
+#########################
+
+echo -e "\nAuthenticating Kerberos"
+echo "-----------------------"
+
+# Initialize Kerberos Ticket
+echo -n "Domain admin name (default: Administrator): "
+read adminName
+if [[ -z "$adminName" ]]; then
+	kinit Administrator@$domainUp
+else
+	kinit $adminName@$domainUp
+fi
+# Check for ticket
+if ! klist -s ;then
+	echo "No valid kerberos ticket, aborting"
+	exit 1
+fi
+
 
 ##################
 # MODIFY CONFIGS #
