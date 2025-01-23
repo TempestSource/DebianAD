@@ -1,5 +1,5 @@
-# DebianAD
-Joins a Debian machine to an active directory machine
+# Linux AD
+Joins a Linux machine to an active directory machine
 
 Features:
 - Joins machine to domain
@@ -8,7 +8,10 @@ Features:
 - Sudo privileges managed via active directory group
 
 
-Tested on Debian 12 and Windows Server 2025
+Supported/Tested Distros:
+- Debian 12
+- Linux Mint 22
+- Windows Server 2025
 
 Credit for how it works:
 https://wiki.debian.org/AuthenticatingLinuxWithActiveDirectorySssd
