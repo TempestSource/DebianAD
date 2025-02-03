@@ -1,0 +1,5 @@
+KerberosAuthentication yes
+KerberosTicketCleanup yes
+GSSAPIAuthentication yes
+GSSAPICleanupCredentials yes
+UseDNS yes

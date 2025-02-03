@@ -122,6 +122,12 @@ net ads join -k
 systemctl restart sssd
 systemctl enable sssd
 
+#####################
+# SSH With Kerberos #
+#####################
+cat $tmpdir/configs/sshd_config /etc/ssh/sshd_config
+systemctl restart ssh
+
 
 ###########
 # CLEANUP #
