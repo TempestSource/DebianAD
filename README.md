@@ -6,6 +6,7 @@ Features:
 - Log on as active directory user
 - Authentication via kerberos
 - Sudo privileges managed via active directory group
+- SSH Authentication via Kerberos
 
 
 Supported/Tested Distros:
